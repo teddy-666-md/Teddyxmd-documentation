@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TEDDY-XMD BOT — Documentation</title>
+  <meta name="description" content="Official documentation for TEDDY-XMD BOT: WhatsApp automation with AI, media tools, group management, and secure pairing.">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Exo+2:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --neon: #00ff88;
+      --neon-dim: #00cc6a;
+      --dark: #0a0a0f;
+      --glass: rgba(20, 20, 30, 0.35);
+      --text: #e0f7fa;
+      --input-bg: rgba(30, 30, 50, 0.4);
+      --border: rgba(0, 255, 136, 0.3);
+      --hover: rgba(0, 255, 136, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Exo 2', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      padding: 40px 20px;
+      line-height: 1.7;
+    }
+
+    /* Particles Background */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      padding: 48px 40px;
+      backdrop-filter: blur(12px);
+      background: var(--glass);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+      z-index: 10;
+      transform: translateY(0);
+      animation: float 6s ease-in-out infinite;
+      overflow-y: auto;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .logo-container {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+
+    .logo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid transparent;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(to right, var(--neon), #00b3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: rgba(224, 247, 250, 0.7);
+      margin-bottom: 24px;
+    }
+
+    /* Social Icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .social-icons a {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neon);
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 24px;
+      margin: 28px 0 16px;
+      color: var(--neon);
+    }
+
+    p, li {
+      margin-bottom: 14px;
+      color: #c5e8e6;
+    }
+
+    ul {
+      padding-left: 24px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    code {
+      background: var(--input-bg);
+      padding: 0.2em 0.5em;
+      border-radius: 6px;
+      font-family: 'Orbitron', monospace;
+      color: var(--neon);
+      font-size: 0.95em;
+    }
+
+    a {
+      color: var(--neon);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      background: rgba(0, 255, 136, 0.08);
+      border-left: 3px solid var(--neon);
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95em;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 12px;
+      color: rgba(224, 247, 250, 0.4);
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: var(--neon);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 32px 20px;
+      }
+      .title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <div class="container">
+    <div class="header">
+      <div class="logo-container">
+        <div class="logo">
+          <img src="https://files.catbox.moe/4yfqdx.jpg" alt="Septorch Logo">
+        </div>
+      </div>
+      <h1 class="title">TEDDY-XMD BOT</h1>
+      <p class="subtitle">Official Documentation — V 3.0.0</p>
+
+      <div class="social-icons">
+        <a href="https://youtube.com/@teddytech4?si=sNCype1tWPrto22F" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@kibet_fx?_t=ZS-8zDA2wBuPh3&_r=1" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://x.com/teddytech4?t=Sz5UVk73HjYuXnrcFmi2sQ&s=09" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://whatsapp.com/channel/0029Vb6NveDBPzjPa4vIRt3n" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <section>
+      <h2>🚀 Overview</h2>
+      <p><strong>TEDDY-XMD_BOT</strong> is a multi-purpose WhatsApp automation engine built with <code>Node.js</code> and <code>@whiskeysockets/baileys</code> (Multi-Device). It enables creators, brands, and entrepreneurs to deploy intelligent, secure, and scalable WhatsApp workflows—without WhatsApp Business API limitations.</p>
+    </section>
+
+    <section>
+      <h2>✨ Core Features</h2>
+      <ul>
+        <li><strong>🤖 AI Integration:</strong> ChatGPT, Gemini, image generation, and optional memory</li>
+        <li><strong>📥 Downloaders:</strong> YouTube, TikTok, Instagram, Spotify, Threads</li>
+        <li><strong>🖼️ Media Tools:</strong> Stickers, blur, meme generator, screenshot via Puppeteer</li>
+        <li><strong>🎮 Engagement:</strong> Tic Tac Toe, Trivia, Math Quiz, Hangman</li>
+        <li><strong>⚙️ Group Ops:</strong> Antilink, auto-tag, admin-only commands, welcome messages</li>
+        <li><strong>🔐 Owner Controls:</strong> Toggle chatbot, manage keys, view usage</li>
+      </ul>
+      <p>Use <code>.menu</code> in any chat to explore all commands.</p>
+    </section>
+
+    <section>
+      <h2>🔧 Why Baileys (Not Official API)?</h2>
+      <p>WhatsApp Business API is restrictive for real-time, interactive bots:</p>
+      <ul>
+        <li>Requires Meta Business verification</li>
+        <li>No support for stickers, statuses, or ephemeral media</li>
+        <li>24-hour messaging window + template approval</li>
+        <li>High cost at scale ($0.005–$0.05/message)</li>
+      </ul>
+      <p>Baileys replicates WhatsApp Web over WebSocket—enabling full feature parity while preserving E2E encryption.</p>
+      <div class="note">
+        ⚠️ This is an <em>unofficial client</em>. Use responsibly. Do not spam. Account bans are possible under WhatsApp’s Terms of Service.
+      </div>
+    </section>
+
+    <section>
+      <h2>🔗 How to Connect</h2>
+      <ol>
+        <li>Visit <a href="https://t.me/Teddyxmdbot" target="_blank">@Teddyxmdbot on Telegram</a></li>
+        <li>Subscribe to the monthly hosting plan (supports infrastructure & updates)</li>
+        <li>Pair your WhatsApp using a secure <strong>pairing code</strong> (like WhatsApp Web)</li>
+        <li>Start using commands like <code>.ai hello</code> or <code>.yt [URL]</code></li>
+      </ol>
+      <p>Each authorization key is valid for <strong>30 days</strong>. Renew to maintain service.</p>
+    </section>
+
+    <section>
+      <h2>🔒 Privacy & Security</h2>
+      <ul>
+        <li>Messages are processed in-memory and never stored</li>
+        <li>AI memory (if enabled) is encrypted and scoped to your chat</li>
+        <li>No logs of message content—only anonymized command metrics</li>
+        <li>Developer has zero access to your session or data</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      © 2026 <a href="https://whatsapp.com/channel/0029Vb6NveDBPzjPa4vIRt3n">TEDDY-TECH</a> • All Rights Reserved<br>
+      <span style="font-size:11px; color:rgba(224,247,250,0.5);">
+        Automation & Growth Tools — Chat automation, contact growth, and smart business tools for creators, brands, and entrepreneurs.
+      </span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60, density: { enable: true, area: 800 } },
+        color: { value: "#00ff88" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4, random: true },
+        size: { value: 2, random: true },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: true,
+          out_mode: "out"
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "repulse" } }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
